@@ -101,18 +101,48 @@ This diagram illustrates the full pipeline:
 ---
 
 ## 📊 Dose Distribution Statistics
+## 📊 Dose Distributions & Outlier Detection
 
-### 🔹 Maximum Dose per Patient
-<img src="photo_2025-07-23_21-43-51.jpg" alt="Histogram of Max Dose" width="400"/>
+<img src="imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" alt="Histogram of Dose Distributions" width="600"/>
 
-- Most patients receive a **maximum dose around 65–70 units**
-- Small tails toward underdosed and overdosed individuals
+### 🔎 Summary
 
-### 🔹 Mean Dose per Patient
-<img src="photo_2025-07-23_21-43-55.jpg" alt="Histogram of Mean Dose" width="400"/>
+- **Two histograms** are shown above:
+  - **Maximum Dose per Patient** (left)
+  - **Mean Dose per Patient** (right)
 
-- The **mean dose** is more spread out
-- Peak between **1.5–2.0**, with a long tail for higher means
+- **Key statistical observations:**
+  - For **non-zero dose values**, survivors have a voxel mean dose of approximately **1.83**, while non-survivors have a mean of **1.88**
+  - The **percentage of zero dose values** is higher among survivors (**10.46%**) compared to non-survivors (**5.59%**)
+
+> 🧠 **This suggests survivors tend to have more focused and precise dose distributions** than non-survivors.
+
+---
+
+### 🧪 Outlier Detection Methods
+
+To detect abnormal patient dose patterns, **three methods** were applied:
+
+- **PCA**: Principal Component Analysis based on voxel-level dose features  
+  → Used projection on the first 2 components (97% of total variance)
+- **DBSCAN**: Density-based spatial clustering
+- **Mean of pairwise distances**: To detect spread within voxel dose distributions
+
+---
+
+### 🚨 Identified Outliers
+
+**5 patients were classified as outliers** by at least 2 of the above methods:
+
+| Patient ID | Survival | Notes               |
+|------------|----------|---------------------|
+| #61        | No       | Far from template   |
+| #164       | Yes      | Close to template   |
+| #197       | Yes      | Close to template   |
+| #199       | Yes      | Close to template   |
+| #258       | No       | Close to template   |
+
+> These cases highlight that **non-survivors may have less spatial consistency**, while survivors tend to cluster more tightly around a shared dose pattern.
 
 ---
 
