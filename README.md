@@ -4,7 +4,7 @@ Among these patients, many are diagnosed with **locally advanced stage 3 NSCLC (
 This project explores the relationship between cardiac radiation dose and 2-year overall survival (OS) in stage 3 LA-NSCLC patients. Using **voxel-wise statistical modeling**, **unsupervised clustering**, and **advanced visualization**, we investigate spatial dose patterns in CT scans to identify regions most associated with survival outcomes.
 
 ---
-### ⚠️ Problematic
+### ⚠️  Research Challenge
 
 Radiotherapy involves directing high-energy beams at the tumor to:
 - **Maximize dose** to cancer cells
