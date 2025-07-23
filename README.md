@@ -16,28 +16,29 @@ This project follows a multi-stage analytical pipeline:
 5. **Visualization** of results for interpretation
 
 ---
+## 🧠 Analysis Workflow
+
+<img src="photo_2025-07-23_21-43-43.jpg" alt="Voxel Analysis Pipeline" width="700%"/>
+
+This diagram illustrates the full pipeline:
+- **Input**: Patient CT scans and dose maps
+- **Deformation Step**: All patient data is mapped to a common anatomical template
+- **Statistical Analysis**: Voxel-wise comparisons between survivor groups
+- **Output**: p-value maps indicating regions associated with 2-year survival
+
+---
 
 ## 📊 Key Visualizations
 
 | Concept | Visualization |
 |--------|----------------|
-| **Raw Data** | <img src="output.gif" width="300"/> <br> |
-| **Dose Distribution Comparison** | <img src="clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="300"/> <br> A quick animation showing different dose maps among patients. It visually demonstrates the spread and variation of radiation across individuals. |
+| **Raw Data** | <img src="output.gif" width="500"/> <br> |
+| **Dose Distribution Comparison** | <img src="clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="500"/> <br> A quick animation showing different dose maps among patients. <br> It visually demonstrates the spread and variation of radiation across individuals. |
 | **Voxel-Wise Group Dose Characteristics** | <img src="charts.jpg" width="600"/> <br> Boxplots and histograms compare survivors (YES) and non-survivors (NO) for: <br> ▫️ % of zero-dose voxels <br> ▫️ Mean dose of non-zero voxels <br> 👉 Survivors tend to have more voxels spared and more focused dosing. |
 | **Axial Dose Distribution Map** | <img src="heat.jpg" width="600"/> <br> Heatmaps of mean dose across an axial slice: <br> ▫️ Left: Right side of heart <br> ▫️ Right: Left side of heart <br> Indicates spatial asymmetry in dose distribution. |
 | **Cropping by ROI** | <img src="final.jpg" width="600"/> <br> Manual cropping of 3D dose maps using a fixed coordinate window, applied consistently across patients. <br> This prepares the data for spatial analysis using the following radiobiological normalization: <br> <img src="eqd2formula.jpg" width="250"/> <br> ☢️ The **EQD₂ formula** adjusts physical dose (D) using a **biological weighting factor**, based on the linear-quadratic model with tissue-specific **α/β** ratios. <br> ▫️ Two settings were applied: α/β = 2 (for late-responding tissues) and α/β = 5 (intermediate case). |
-
-
----
-
-## 📂 Repository Structure
-├── preprocessing/ # CT scan alignment, resampling, normalization
-├── vba/ # Voxel-wise statistical mapping (e.g., t-tests, p-values)
-├── clustering/ # PCA, DBSCAN, and spatial clustering scripts
-├── visualization/ # Animated plots, overlays, and 3D maps
-├── notebooks/ # Jupyter notebooks for exploration and reporting
-├── visuals/ # GIFs and images for publication/presentation
-
+| **Spatial Clustering Result** | <img src="3d.jpg" width="450"/> <br> **3D voxel cluster plot** showing statistically significant regions (colored labels). <br> ▫️ Clustering was applied after thresholding voxel-wise p-values <br> ▫️ Labels **39, 42, 46, 47** show spatial coherence across the heart region, pointing to potential anatomical biomarkers. |
+| **Dose Distribution & Outlier Detection Summary** | <img src="imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" width="700"/> <br> **Histograms of Maximum and Mean Dose per Patient**: Survivors: mean dose ≈ **1.83**, higher % of zero-dose voxels (**10.46%**) ; Non-survivors: mean dose ≈ **1.88**, lower % of zero-dose voxels (**5.59%**) Indicates survivors may receive more focused dosing. |
 
 ---
 
@@ -78,6 +79,8 @@ This project follows a multi-stage analytical pipeline:
 
 ## 🏛️ Supervision
 
+<img src="logo.jpeg" alt="INT Milano Logo" width="100" align="right"/>
+
 > This research was conducted under the mentorship of  
 > **Fondazione IRCCS Istituto Nazionale dei Tumori di Milano**, Italy.
 
@@ -90,71 +93,5 @@ This project follows a multi-stage analytical pipeline:
 
 ---
 
-## 🧠 Analysis Workflow
 
-<img src="photo_2025-07-23_21-43-43.jpg" alt="Voxel Analysis Pipeline" width="100%"/>
-
-This diagram illustrates the full pipeline:
-- **Input**: Patient CT scans and dose maps
-- **Deformation Step**: All patient data is mapped to a common anatomical template
-- **Statistical Analysis**: Voxel-wise comparisons between survivor groups
-- **Output**: p-value maps indicating regions associated with 2-year survival
-
----
-
-
-## 📊 Dose Distributions & Outlier Detection
-
-<img src="imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" alt="Histogram of Dose Distributions" width="1000"/>
-
-### 🔎 Summary
-
-- **Two histograms** are shown above:
-  - **Maximum Dose per Patient** (left)
-  - **Mean Dose per Patient** (right)
-
-- **Key statistical observations:**
-  - For **non-zero dose values**, survivors have a voxel mean dose of approximately **1.83**, while non-survivors have a mean of **1.88**
-  - The **percentage of zero dose values** is higher among survivors (**10.46%**) compared to non-survivors (**5.59%**)
-
-> 🧠 **This suggests survivors tend to have more focused and precise dose distributions** than non-survivors.
-
----
-
-### 🧪 Outlier Detection Methods
-
-To detect abnormal patient dose patterns, **three methods** were applied:
-
-- **PCA**: Principal Component Analysis based on voxel-level dose features  
-  → Used projection on the first 2 components (97% of total variance)
-- **DBSCAN**: Density-based spatial clustering
-- **Mean of pairwise distances**: To detect spread within voxel dose distributions
-
----
-
-### 🚨 Identified Outliers
-
-**5 patients were classified as outliers** by at least 2 of the above methods:
-
-| Patient ID | Survival | Notes               |
-|------------|----------|---------------------|
-| #61        | No       | Far from template   |
-| #164       | Yes      | Close to template   |
-| #197       | Yes      | Close to template   |
-| #199       | Yes      | Close to template   |
-| #258       | No       | Close to template   |
-
-> These cases highlight that **non-survivors may have less spatial consistency**, while survivors tend to cluster more tightly around a shared dose pattern.
-
----
-
-## 🌐 Spatial Clustering Result
-
-<img src="photo_2025-07-23_21-44-00.jpg" alt="3D Cluster Labels" width="450"/>
-
-- **3D voxel cluster plot** of significant regions (labeled by color)
-- Generated using spatial clustering after thresholding voxel-wise p-values
-- Clusters **39, 42, 46, 47** show distinct spatial behavior within heart region
-
----
 
