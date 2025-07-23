@@ -137,12 +137,24 @@ This diagram illustrates the full pipeline:
 
 ---
 
-## 🏛️ Supervision
+## 🧑‍🔬 Project Team
+
+🎓 **Students**:  
+- Stefano Beraldo  
+- **Darkhan Islam**  
+- Amine Ould Hocine  
+- Samuel Povoa  
+
+📡 **Supervised by**:  
+- Alessandra Catalano  
+- Alessandro Cecchetti  
 
 <img src="logo.jpeg" alt="INT Milano Logo" width="100" align="right"/>
 
 > This research was conducted under the mentorship of  
-> **Fondazione IRCCS Istituto Nazionale dei Tumori di Milano**, Italy.
+> **Fondazione IRCCS Istituto Nazionale dei Tumori** ,Milano, Italy.
+
+📚 *Applied Statistics Research Collaboration*
 
 ---
 
