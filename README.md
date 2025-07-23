@@ -100,10 +100,10 @@ This diagram illustrates the full pipeline:
 
 ---
 
-## 📊 Dose Distribution Statistics
+
 ## 📊 Dose Distributions & Outlier Detection
 
-<img src="imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" alt="Histogram of Dose Distributions" width="600"/>
+<img src="imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" alt="Histogram of Dose Distributions" width="1000"/>
 
 ### 🔎 Summary
 
