@@ -87,3 +87,42 @@ This project follows a multi-stage analytical pipeline:
 - T. Rancati et al., “SLiC Algorithm for Spatial Dose Analysis”, *Journal of the European Society for Radiotherapy and Oncology*
 
 ---
+
+## 🧠 Analysis Workflow
+
+<img src="photo_2025-07-23_21-43-43.jpg" alt="Voxel Analysis Pipeline" width="100%"/>
+
+This diagram illustrates the full pipeline:
+- **Input**: Patient CT scans and dose maps
+- **Deformation Step**: All patient data is mapped to a common anatomical template
+- **Statistical Analysis**: Voxel-wise comparisons between survivor groups
+- **Output**: p-value maps indicating regions associated with 2-year survival
+
+---
+
+## 📊 Dose Distribution Statistics
+
+### 🔹 Maximum Dose per Patient
+<img src="photo_2025-07-23_21-43-51.jpg" alt="Histogram of Max Dose" width="400"/>
+
+- Most patients receive a **maximum dose around 65–70 units**
+- Small tails toward underdosed and overdosed individuals
+
+### 🔹 Mean Dose per Patient
+<img src="photo_2025-07-23_21-43-55.jpg" alt="Histogram of Mean Dose" width="400"/>
+
+- The **mean dose** is more spread out
+- Peak between **1.5–2.0**, with a long tail for higher means
+
+---
+
+## 🌐 Spatial Clustering Result
+
+<img src="photo_2025-07-23_21-44-00.jpg" alt="3D Cluster Labels" width="450"/>
+
+- **3D voxel cluster plot** of significant regions (labeled by color)
+- Generated using spatial clustering after thresholding voxel-wise p-values
+- Clusters **39, 42, 46, 47** show distinct spatial behavior within heart region
+
+---
+
