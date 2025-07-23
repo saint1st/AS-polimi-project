@@ -21,10 +21,12 @@ This project follows a multi-stage analytical pipeline:
 
 | Concept | Visualization |
 |--------|----------------|
-| **Dose Distribution Comparison** | <img src="clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="300"/> |
-| **Voxel-Wise t-Map (OS 2y)** |  |
-| **Outlier Detection (PCA/DBSCAN)** | |
-| **Cluster Overlay on Template** | |
+| **Raw Data** | <img src="output.gif" width="300"/> <br> |
+| **Dose Distribution Comparison** | <img src="clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="300"/> <br> A quick animation showing different dose maps among patients. It visually demonstrates the spread and variation of radiation across individuals. |
+| **Voxel-Wise Group Dose Characteristics** | <img src="charts.jpg" width="600"/> <br> Boxplots and histograms compare survivors (YES) and non-survivors (NO) for: <br> ▫️ % of zero-dose voxels <br> ▫️ Mean dose of non-zero voxels <br> 👉 Survivors tend to have more voxels spared and more focused dosing. |
+| **Axial Dose Distribution Map** | <img src="heat.jpg" width="600"/> <br> Heatmaps of mean dose across an axial slice: <br> ▫️ Left: Right side of heart <br> ▫️ Right: Left side of heart <br> Indicates spatial asymmetry in dose distribution. |
+| **Cropping by ROI** | <img src="final.jpg" width="600"/> <br> Manual cropping of 3D dose maps using a fixed coordinate window, applied consistently across patients. <br> This prepares the data for spatial analysis using the following radiobiological normalization: <br> <img src="eqd2formula.jpg" width="250"/> <br> ☢️ The **EQD₂ formula** adjusts physical dose (D) using a **biological weighting factor**, based on the linear-quadratic model with tissue-specific **α/β** ratios. <br> ▫️ Two settings were applied: α/β = 2 (for late-responding tissues) and α/β = 5 (intermediate case). |
+
 
 ---
 
