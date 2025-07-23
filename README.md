@@ -1,32 +1,97 @@
-# Voxel-Based Analysis and Clustering of Cardiac Regions in Lung Cancer Patients
-This project focuses on voxel-based statistical analysis and unsupervised clustering of CT scans to identify cardiac regions associated with 2-year survival outcomes in lung cancer patients undergoing treatment.
+# 🫀 Voxel-Based Analysis and Clustering of Cardiac Regions in Lung Cancer Patients
 
-Using advanced voxel-wise statistical modeling and machine learning clustering techniques, we analyze imaging data to uncover spatial patterns in the heart region that may be predictive of survival. This work contributes to a better understanding of treatment-related cardiac toxicity and its potential impact on long-term outcomes.
+This project explores the relationship between cardiac radiation dose and 2-year overall survival (OS) in stage 3 LA-NSCLC patients. Using **voxel-wise statistical modeling**, **unsupervised clustering**, and **advanced visualization**, we investigate spatial dose patterns in CT scans to identify regions most associated with survival outcomes.
 
-# 🧠 Methodology
-Voxel-Based Analysis (VBA): We performed voxel-wise survival modeling across cardiac regions using imaging-derived features from CT scans.
+---
 
-Clustering: Unsupervised clustering was applied to identify coherent spatial patterns in the voxel-wise statistical maps.
+## 🧠 Methodology Overview
 
-Statistical Evaluation: We evaluated the significance of identified clusters in relation to patient survival, adjusting for potential confounders.
+<img src="visuals/pipeline.gif" width="100%" alt="Pipeline Overview"/>
 
-# 🧬 Data
-The dataset includes thoracic CT scans from lung cancer patients treated at Fondazione IRCCS Istituto Nazionale dei Tumori di Milano, with a minimum of 2 years of follow-up data.
+This project follows a multi-stage analytical pipeline:
+1. **Preprocessing** of DICOM/CT data
+2. **Voxel-Based Analysis (VBA)** for statistical modeling
+3. **Unsupervised Clustering** to identify spatial dose patterns
+4. **Statistical Significance Testing** (e.g., Welch’s t-test, FDR correction)
+5. **Visualization** of results for interpretation
 
-# 🧑‍🏫 Supervision
-This research project was conducted under the mentorship of the
-Fondazione IRCCS Istituto Nazionale dei Tumori di Milano.
+---
 
-# 📂 Contents
-preprocessing/ – CT scan preprocessing pipeline
+## 📊 Key Visualizations
 
-vba/ – Voxel-based analysis scripts
+| Concept | Visualization |
+|--------|----------------|
+| **Dose Distribution Comparison** | <img src="clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="300"/> |
+| **Voxel-Wise t-Map (OS 2y)** |  |
+| **Outlier Detection (PCA/DBSCAN)** | |
+| **Cluster Overlay on Template** | |
 
-clustering/ – Clustering and spatial pattern analysis
+---
 
-visualization/ – Tools for visualizing voxel maps and clusters
+## 📂 Repository Structure
+├── preprocessing/ # CT scan alignment, resampling, normalization
+├── vba/ # Voxel-wise statistical mapping (e.g., t-tests, p-values)
+├── clustering/ # PCA, DBSCAN, and spatial clustering scripts
+├── visualization/ # Animated plots, overlays, and 3D maps
+├── notebooks/ # Jupyter notebooks for exploration and reporting
+├── visuals/ # GIFs and images for publication/presentation
 
-notebooks/ – Interactive notebooks demonstrating methodology and results
 
-# 📌 Goal
-To identify and visualize heart regions that are statistically associated with survival in lung cancer patients, potentially guiding future radiotherapy planning and risk stratification.
+---
+
+## 🧬 Dataset
+
+- **Source:** IRCCS Istituto Nazionale dei Tumori di Milano  
+- **Patients:** 321 cases across 5 centers  
+- **Modalities:** DICOM CT scans + RT dose maps  
+- **Features:** Clinical, anatomical, therapy, comorbidity, outcome (2-year OS)
+
+---
+
+## 🧪 Statistical Tools Used
+
+- Welch’s t-test (voxel-wise analysis)
+- Benjamini–Hochberg FDR correction
+- PCA & DBSCAN for outlier detection
+- Mean dose voxel mapping
+
+---
+
+## 💡 Findings
+
+- Survivors had more **focused** and **precise** dose distributions in heart regions
+- Non-survivors showed **broader, less localized** exposure
+- No single heart substructure showed consistent significant association across all patients
+- Template alignment was crucial for meaningful voxel-wise comparisons
+
+---
+
+## 🚀 Goals
+
+- Improve understanding of **cardiac toxicity** from radiotherapy
+- Identify **spatial biomarkers** predictive of survival
+- Support **personalized radiotherapy planning**
+
+---
+
+## 🏛️ Supervision
+
+> This research was conducted under the mentorship of  
+> **Fondazione IRCCS Istituto Nazionale dei Tumori di Milano**, Italy.
+
+---
+
+## 📜 Citation & Literature
+
+- McWilliam et al., "Novel Methodology to Investigate the Effect of Radiation Dose to Heart Substructures on Overall Survival", *International Journal of Radiation Oncology*
+- T. Rancati et al., “SLiC Algorithm for Spatial Dose Analysis”, *Journal of the European Society for Radiotherapy and Oncology*
+
+---
+
+## 📬 Contact
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/dmazhi)  
+[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:bolatovichhh@gmail.com)
+
+---
+
