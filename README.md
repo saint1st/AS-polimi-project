@@ -87,11 +87,3 @@ This project follows a multi-stage analytical pipeline:
 - T. Rancati et al., “SLiC Algorithm for Spatial Dose Analysis”, *Journal of the European Society for Radiotherapy and Oncology*
 
 ---
-
-## 📬 Contact
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/dmazhi)  
-[![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:bolatovichhh@gmail.com)
-
----
-
