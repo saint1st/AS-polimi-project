@@ -22,35 +22,29 @@ One key hypothesis is that **RT dose to specific cardiac regions** may be a cont
 - **Modalities:** DICOM CT scans + RT dose maps  
 - **Features:** Clinical, anatomical, therapy, comorbidity, outcome (2-year OS)
 - **Data types:** DICOM CT scans, dose distributions, and 54 patient-level features, grouped as follows:
-
-### 🔹 Anatomic and Metabolic Features
-- Age, sex, height, weight, BMI
-- Hypertension, KPS (Karnofsky Performance Status)
-- Smoking status
-- Medications
-- Clinical parameters
-
-### 🔹 Cancer-Related Features
-- Stage of cancer
-- Genetic mutations
-- Tumor dimensions
-- Site of primary tumor
-
-### 🔹 Drug and Therapy Features
-- Chemotherapy cycles
-- Immunotherapy status
-- Start time of RT
-- Type of RT machine used
-- EQD2 prescription dose
-- Volume targeted by RT
-
-### 🔹 Disease and Outcome Features
-- Overall survival at 2 years
-- Pulmonary events
-- Cardiac events post-radiotherapy
-
+  - 🔹 Anatomic and Metabolic Features
+      -  Age, sex, height, weight, BMI
+      - Hypertension, KPS (Karnofsky Performance Status)
+      - Smoking status
+      - Medications
+      - Clinical parameters
+  - 🔹 Cancer-Related Features
+      - Stage of cancer
+      - Genetic mutations
+      - Tumor dimensions
+      - Site of primary tumor
+  - 🔹 Drug and Therapy Features
+      - Chemotherapy cycles
+      - Immunotherapy status
+      - Start time of RT
+      - Type of RT machine used
+      - EQD2 prescription dose
+      - Volume targeted by RT
+  - 🔹 Disease and Outcome Features
+      - Overall survival at 2 years
+      - Pulmonary events
+      - Cardiac events post-radiotherapy
 ---
-
 ## 🧪 Feature Engineering & Preprocessing
 
 - **Medications**: Combined into categories  
@@ -110,13 +104,13 @@ This diagram illustrates the full pipeline:
 
 | Concept | Visualization |
 |--------|----------------|
-| **Raw Data** | <img src="visuals/output.gif" width="500"/> <br> |
-| **Dose Distribution Comparison** | <img src="visuals/clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="500"/> <br> A quick animation showing different dose maps among patients. <br> It visually demonstrates the spread and variation of radiation across individuals. |
-| **Voxel-Wise Group Dose Characteristics** | <img src="visuals/charts.jpg" width="600"/> <br> Boxplots and histograms compare survivors (YES) and non-survivors (NO) for: <br> ▫️ % of zero-dose voxels <br> ▫️ Mean dose of non-zero voxels <br> 👉 Survivors tend to have more voxels spared and more focused dosing. |
-| **Axial Dose Distribution Map** | <img src="visuals/heat.jpg" width="600"/> <br> Heatmaps of mean dose across an axial slice: <br> ▫️ Left: Right side of heart <br> ▫️ Right: Left side of heart <br> Indicates spatial asymmetry in dose distribution. |
-| **Cropping by ROI** | <img src="visuals/final.jpg" width="600"/> <br> Manual cropping of 3D dose maps using a fixed coordinate window, applied consistently across patients. <br> This prepares the data for spatial analysis using the following radiobiological normalization: <br> <img src="visuals/eqd2formula.jpg" width="250"/> <br> ☢️ The **EQD₂ formula** adjusts physical dose (D) using a **biological weighting factor**, based on the linear-quadratic model with tissue-specific **α/β** ratios. <br> ▫️ Two settings were applied: α/β = 2 (for late-responding tissues) and α/β = 5 (intermediate case). |
-| **Spatial Clustering Result** | <img src="visuals/3d.jpg" width="450"/> <br> **3D voxel cluster plot** showing statistically significant regions (colored labels). <br> ▫️ Clustering was applied after thresholding voxel-wise p-values <br> ▫️ Labels **39, 42, 46, 47** show spatial coherence across the heart region, pointing to potential anatomical biomarkers. |
-| **Dose Distribution & Outlier Detection Summary** | <img src="visuals/imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" width="700"/> <br> **Histograms of Maximum and Mean Dose per Patient**: Survivors: mean dose ≈ **1.83**, higher % of zero-dose voxels (**10.46%**) ; Non-survivors: mean dose ≈ **1.88**, lower % of zero-dose voxels (**5.59%**) Indicates survivors may receive more focused dosing. |
+| **Raw Data** | <div align="center"><img src="visuals/output.gif" width="500"/><div> |
+| **Dose Distribution Comparison** | <div align="center"><img src="visuals/clideo_editor_4eb173ba0818435a8c0e81e1763eefac.gif" width="500"/><div> A quick animation showing different dose maps among patients. <br> It visually demonstrates the spread and variation of radiation across individuals. |
+| **Voxel-Wise Group Dose Characteristics** | <div align="center"><img src="visuals/charts.jpg" width="600"/><div> Boxplots and histograms compare survivors (YES) and non-survivors (NO) for: <br> ▫️ % of zero-dose voxels <br> ▫️ Mean dose of non-zero voxels <br> 👉 Survivors tend to have more voxels spared and more focused dosing. |
+| **Axial Dose Distribution Map** | <div align="center"><img src="visuals/heat.jpg" width="600"/><div> Heatmaps of mean dose across an axial slice: <br> ▫️ Right side of lung <br> ▫️ Left side of lung <br> Indicates spatial asymmetry in dose distribution. |
+| **Cropping by ROI** | <div align="center"> <img src="visuals/res.jpg" width="600"/><div> Manual cropping of 3D dose maps using a fixed coordinate window, applied consistently across patients. <br> This prepares the data for spatial analysis using the following radiobiological normalization:  <div align="center"><img src="visuals/eqd2formula.jpg" width="250"/></div> ☢️ The **EQD₂ formula** adjusts physical dose (D) using a **biological weighting factor**, based on the linear-quadratic model with tissue-specific **α/β** ratios. <br> ▫️ Two settings were applied: α/β = 2 (for late-responding tissues) and α/β = 5 (intermediate case). |
+| **Spatial Clustering Result** | <div align="center"><img src="visuals/3d.jpg" width="450"/><div> **3D voxel cluster plot** showing statistically significant regions (colored labels). <br> ▫️ Clustering was applied after thresholding voxel-wise p-values <br> ▫️ Labels **39, 42, 46, 47** show spatial coherence across the heart region, pointing to potential anatomical biomarkers. |
+| **Dose Distribution & Outlier Detection Summary** | <div align="center"><img src="visuals/imgonline-com-ua-2to1-iJFJSxPrRf8Ad.jpg" width="700"/><div> **Histograms of Maximum and Mean Dose per Patient**: Survivors: mean dose ≈ **1.83**, higher % of zero-dose voxels (**10.46%**) ; Non-survivors: mean dose ≈ **1.88**, lower % of zero-dose voxels (**5.59%**) Indicates survivors may receive more focused dosing. |
 
 ---
 
@@ -160,7 +154,7 @@ This diagram illustrates the full pipeline:
 
 ## 📜 Citation & Literature
 
-- [McWilliam et al., "Novel Methodology to Investigate the Effect of Radiation Dose to Heart Substructures on Overall Survival"](https://pubmed.ncbi.nlm.nih.gov/32585334/), *International Journal of Radiation Oncology*
+- [McWilliam et al., "Novel Methodology to Investigate the Effect of Radiation Dose to Heart Substructures on Overall Survival"](https://pubmed.ncbi.nlm.nih.gov/32585334/)
 - T. Rancati et al., “SLiC Algorithm for Spatial Dose Analysis”, *Journal of the European Society for Radiotherapy and Oncology*
 
 ---
