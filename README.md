@@ -130,8 +130,15 @@ This diagram illustrates the full pipeline:
 - Support **personalized radiotherapy planning**
 
 ---
+## 🎓 Academic Affiliation
 
-## 🧑‍🔬 Project Team
+<img src="visuals/polimi.svg" alt="Politecnico di Milano" width="200" align="right"/>
+
+This project was developed as part of the **Applied Statistics** course at  
+**Politecnico di Milano** (*PoliMi*), Italy  
+**Course Instructor**: Prof. Piercesare Secchi  
+**Lab Supervisor**: Ing. Guillaume Koechlin
+### 🧑‍🔬 Project Team
 
 🎓 **Students**:  
 - Stefano Beraldo  
@@ -146,7 +153,7 @@ This diagram illustrates the full pipeline:
 <img src="visuals/logo.jpeg" alt="INT Milano Logo" width="100" align="right"/>
 
 > This research was conducted under the mentorship of  
-> **Fondazione IRCCS Istituto Nazionale dei Tumori** ,Milano, Italy.
+> [**Fondazione IRCCS Istituto Nazionale dei Tumori**](https://www.istitutotumori.mi.it/istituto-nazionale-dei-tumori) , Milano, Italy.
 
 📚 *Applied Statistics Research Collaboration*
 
