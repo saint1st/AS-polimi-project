@@ -1,4 +1,7 @@
-# 🫀 Voxel-Based Analysis and Clustering of Cardiac Regions in Lung Cancer Patients
+<p align="center">
+  <img src="visuals/banner.png" alt="Project Banner" width="100%"/>
+</p>
+
 Lung cancer is one of the most frequent and deadliest cancers. The **5-year overall survival rate** is approximately **25%**.  
 Among these patients, many are diagnosed with **locally advanced stage 3 NSCLC (LA-NSCLC)**, for which **radiation therapy (RT)** is a primary treatment modality.
 This project explores the relationship between cardiac radiation dose and 2-year overall survival (OS) in stage 3 LA-NSCLC patients. Using **voxel-wise statistical modeling**, **unsupervised clustering**, and **advanced visualization**, we investigate spatial dose patterns in CT scans to identify regions most associated with survival outcomes.
