@@ -160,7 +160,7 @@ This diagram illustrates the full pipeline:
 
 ## 📜 Citation & Literature
 
-- McWilliam et al., "Novel Methodology to Investigate the Effect of Radiation Dose to Heart Substructures on Overall Survival", *International Journal of Radiation Oncology*
+- [McWilliam et al., "Novel Methodology to Investigate the Effect of Radiation Dose to Heart Substructures on Overall Survival"](https://pubmed.ncbi.nlm.nih.gov/32585334/), *International Journal of Radiation Oncology*
 - T. Rancati et al., “SLiC Algorithm for Spatial Dose Analysis”, *Journal of the European Society for Radiotherapy and Oncology*
 
 ---
