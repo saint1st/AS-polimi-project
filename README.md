@@ -132,7 +132,7 @@ This diagram illustrates the full pipeline:
 ---
 ## 🎓 Academic Affiliation
 
-<img src="visuals/polimi.svg" alt="Politecnico di Milano" width="200" align="right"/>
+<img src="visuals/polimi.png" alt="Politecnico di Milano" width="300" align="right"/>
 
 This project was developed as part of the **Applied Statistics** course at  
 **Politecnico di Milano** (*PoliMi*), Italy  
